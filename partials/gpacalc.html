@@ -1,1 +1,68 @@
-<H1>GPA CALCULATOR</H1>
+<div class="gpacalc">
+    <header class="col-lg-12 gpaheader">
+        <h2>GPA Calculator</h2>
+    </header>
+    <section class="col-lg-12">
+        <div class="row gpainfo">
+            <div class="col-lg-6">
+                {{gradeName}}
+            </div>
+            <div class="col-lg-6">
+
+            </div>
+        </div>
+    </section>
+    <section class="GPACalculator">
+        <button ng-click="addGrade()" class="btn btn-primary btn-addGrade">Add Grade</button>
+        <form name="outerForm" class="form-inline">
+            <uib-tabset active="activeTabIndex" justified="false">
+                <uib-tab ng-repeat="gradee in grades track by $index">
+                    <uib-tab-heading>
+                        {{gradee.title}}
+                        <a ng-click="deleteGrade(gradee, $index)"><span class="fa fa-times deleteGrade"></span></a>
+                    </uib-tab-heading>
+                    <ng-form name="grade">
+                        <div class="form-group gradeNameInput">
+                            <label for="gradename">GRADE</label>
+                            <input id="gradename" type="text" class="form-control" ng-model="gradee.title"
+                                   ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 1000, 'blur': 0 } }"
+                                   ng-change="updateGradeName(gradee, $index)">
+                        </div>
+                    </ng-form>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>GPA</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="student in gradee.students">
+                            <td><a ng-click="deleteStudentFromGrade($index, gradee)" uib-popover="Remove student" popover-placement="right" popover-trigger="mouseenter"><span class="fa fa-times deleteStudent"></span></a></td>
+                            <td>{{student.stName}}</td>
+                            <td>{{student.stGPA}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <ng-form name="addNewStudent">
+                        <div class="form-group">
+                            <input type="text" class="form-control" ng-model="newStudent.stName" placeholder="Enter name of student">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="stGPA" class="form-control" ng-model="newStudent.stGPA" placeholder="Enter student's GPA">
+                            <div ng-messages="addNewStudent.stGPA.$error" ng-if="hasError(addNewStudent.stGPA)">
+                                <label ng-message="min" class="text-danger">Only positive integer value allowed.</label>
+                                <label ng-message="pattern" class="text-danger">Only integer value allowed.</label>
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-default" value="Add" ng-click="addStudentToGrade(gradee)">
+                    </ng-form>
+                </uib-tab>
+            </uib-tabset>
+        </form>
+    </section>
+</div>
+
+

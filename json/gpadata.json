@@ -1,0 +1,16 @@
+[
+  {
+    "title": "11a",
+    "students": [
+      { "stName": "Vasya Pupkin", "stGPA": "4.8" },
+      { "stName": "Petia Vasechkin", "stGPA": "3.2"}
+    ]
+  },
+  {
+    "title": "9b",
+    "students": [
+      { "stName": "Kolomiitsev Aleksandr", "stGPA": "4.9" },
+      { "stName": "John Doe", "stGPA": "4.2"}
+    ]
+  }
+]

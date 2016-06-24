@@ -1,3 +1,42 @@
-<div class="row domino">
-    <h1>Domino</h1>
+<div class="domino">
+    <header class="col-lg-12 dominoHeader">
+        <h2>Domino</h2>
+    </header>
+    <section class="col-lg-12 dominoGame">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="col-lg-10">
+                <div class="row newDomino">
+                    <div class="col-lg-12">
+                        <span class="fa fa-undo leftRotate" ng-click="leftRotation()"></span>
+                        <span class="fa fa-plus newDominoButton"></span>
+                        <span class="fa fa-repeat rightRotate" ng-click="rightRotation()"></span>
+                    </div>
+                </div>
+                <div class="row dominoFigure">
+                    <div class="col-lg-12">
+                        <div class="dominoBody">
+                            <div class="dominoParts dominoTop"></div>
+                            <div class="dominoParts dominoBottom"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row controls">
+                    <div class="col-lg-12">
+                        controls
+                    </div>
+                </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="dominoParts pointOne"></div>
+                    <div class="dominoParts pointTwo"></div>
+                    <div class="dominoParts pointThree"></div>
+                    <div class="dominoParts pointFour"></div>
+                    <div class="dominoParts pointFive"></div>
+                    <div class="dominoParts PointSix"></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
 </div>

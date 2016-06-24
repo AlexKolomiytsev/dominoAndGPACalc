@@ -7,6 +7,9 @@ body {
     background: #F5F5F5;
     overflow-x: hidden;
 }
+h2 {
+    margin-top: 0px;
+}
 .header {
     background: #364F6B;
 
@@ -39,39 +42,73 @@ body {
     font-size: 32px;
 }
 
-.tasks {
-    position: relative;
-    width: 100%;
-    height: 500px;
-}
 
 div[ng-view] {
     position: absolute;
     width: 100%;
     height: 100%;
+    margin: 20px;
 }
 div[ng-view].ng-enter,
 div[ng-view].ng-leave {
-    -webkit-transition: all 3s linear;
-    -moz-transition: all 3s linear;
-    -o-transition: all 3s linear;
-    transition: all 3s linear;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
 }
 div[ng-view].ng-enter {
     /*opacity: 0;
     display: block;*/
-    top: 100%;
+    left: 100%;
 }
 div[ng-view].ng-leave {
     /*opacity: 1;
     display: none;*/
-    bottom: 0%;
+    left: 0%;
 }
 div[ng-view].ng-enter-active {
     /*opacity: 1;*/
-    top: 0%;
+    left: 0%;
 }
 div[ng-view].ng-leave-active {
     /*opacity: 0;*/
-    bottom: -100%;
+    left: -100%;
+}
+
+.dominoHeader, .newDomino {
+    text-align: center;
+}
+.newDominoButton {
+    margin: 0px 20px 0px 20px;
+}
+.dominoParts {
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+}
+.dominoFigure {
+    position: relative;
+}
+.dominoBody {
+    position: relative;
+    left: 35%;
+}
+.gpaheader {
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+.deleteGrade {
+    cursor: pointer;
+}
+.deleteStudent {
+    cursor: pointer;
+}
+.btn-addGrade {
+    margin: 5px;
+}
+.gradeNameInput {
+    margin: 20px 0px 10px 10px;
+}
+.gpainfo {
+    text-align: center;
 }
