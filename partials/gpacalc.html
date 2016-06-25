@@ -4,11 +4,17 @@
     </header>
     <section class="col-lg-12">
         <div class="row gpainfo">
-            <div class="col-lg-6">
+            <div class="col-lg-6 gradeName">
                 {{gradeName}}
+                <div class="gpainfoCaption">
+                    Grade name
+                </div>
             </div>
-            <div class="col-lg-6">
-
+            <div class="col-lg-6 gradeGPA">
+                {{AVEgrade | number:2}}
+                <div class="gpainfoCaption">
+                    Average GPA
+                </div>
             </div>
         </div>
     </section>
@@ -16,7 +22,7 @@
         <button ng-click="addGrade()" class="btn btn-primary btn-addGrade">Add Grade</button>
         <form name="outerForm" class="form-inline">
             <uib-tabset active="activeTabIndex" justified="false">
-                <uib-tab ng-repeat="gradee in grades track by $index">
+                <uib-tab ng-repeat="gradee in grades track by $index" select="bindGradeInfo(gradee)">
                     <uib-tab-heading>
                         {{gradee.title}}
                         <a ng-click="deleteGrade(gradee, $index)"><span class="fa fa-times deleteGrade"></span></a>

@@ -9,6 +9,7 @@ angular.module('GPAcalc')
         var apiKey = 'dxutsfn8IwNW0usGzQ6nSiOaL4bLCpM1';
         $scope.activeTabIndex = 0;
         $scope.gradeName = null;
+        $scope.AVEgrade = null;
 
         var getGrades = function () {
             $http.get(collectionUrl, {
@@ -22,9 +23,12 @@ angular.module('GPAcalc')
             });
         };
         getGrades();
-        
+
+        var generateUqinueID = function () {
+            return '_' + Math.random().toString(36).substr(2, 9);
+        };
         var newGradeObject = {
-            //_id: "newGrade" + ++gradeId,
+            //_id: generateUqinueID(),
             title: "newGrade",
             students: [
 
@@ -32,32 +36,23 @@ angular.module('GPAcalc')
         };
 
         $scope.addGrade = function () {
-            /*$timeout(function(){
-                $scope.activeTabIndex = 0;
-            });*/
-            var isAdd = true;
-            //for (var i = 0; i < $scope.grades.length; ++i) {
-                //if ($scope.grades[i]._id == 'newGrade') {
-                //    isAdd = false;
-                //    alert("ERROR! \nnewGrade is already exist! \nPlease, edit newGrade tab to add new one!");
-                //}
-                //else isAdd = true;
-            //}
-            if (isAdd) {
-                $scope.grades.push(newGradeObject);
-                $http.post(collectionUrl, newGradeObject, {
-                    params: {
-                        apiKey: apiKey
-                    }
-                }).then(function (response) { return null });
-            }
-            //getGrades();
+            newGradeObject._id = generateUqinueID();
+            $http.post(collectionUrl, newGradeObject, {
+                params: {
+                    apiKey: apiKey
+                }
+            }).success(function (data) {
+                console.log(data);
+                getGrades();
+                //$scope.grades.push(newGradeObject);
+            });
+
         };
 
         $scope.deleteGrade = function (grade, index) {
             console.log(index);
             $scope.grades.splice(index, 1);
-            $http.delete(collectionUrl + '/' + grade._id.$oid, {
+            $http.delete(collectionUrl + '/' + grade._id, {
                 params: {
                     apiKey: apiKey
                 }
@@ -65,7 +60,7 @@ angular.module('GPAcalc')
         };
         
         $scope.updateGradeName = function (grade, index) {
-            $http.put(collectionUrl + '/' + grade._id.$oid, grade, {
+            $http.put(collectionUrl + '/' + grade._id, grade, {
                     params: {
                         apiKey: apiKey
                     }
@@ -95,7 +90,8 @@ angular.module('GPAcalc')
                 grade.students.push(studentToSave);
                 gradeToSave.students.push(studentToSave);
 
-                $http.put(collectionUrl + '/' + grade._id.$oid, gradeToSave, {
+                $scope.bindGradeInfo(grade);
+                $http.put(collectionUrl + '/' + grade._id, gradeToSave, {
                     params: {
                         apiKey: apiKey
                     }
@@ -113,14 +109,25 @@ angular.module('GPAcalc')
             grade.students.splice(studentIndex, 1);
             gradeToSave.students.splice(studentIndex, 1);
 
-            $http.put(collectionUrl + '/' + grade._id.$oid, gradeToSave, {
+            $scope.bindGradeInfo(grade);
+
+            $http.put(collectionUrl + '/' + grade._id, gradeToSave, {
                 params: {
                     apiKey: apiKey
                 }
             })
         };
 
+        $scope.bindGradeInfo = function (grade) {
+            $scope.gradeName = grade.title;
+            var sum = 0;
+            for (var i = 0; i < grade.students.length; i++) {
+                sum += +grade.students[i].stGPA;
+            }
 
+            $scope.AVEgrade = (sum != 0) ? (sum / grade.students.length) : 0;
+            //console.log(sum);
+        };
         
         
         $scope.hasError = function (modelController, error) {

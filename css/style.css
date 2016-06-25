@@ -7,6 +7,9 @@ body {
     background: #F5F5F5;
     overflow-x: hidden;
 }
+a {
+    outline: none !important;
+}
 h2 {
     margin-top: 0px;
 }
@@ -111,4 +114,11 @@ div[ng-view].ng-leave-active {
 }
 .gpainfo {
     text-align: center;
+}
+.gradeName, .gradeGPA {
+    font-size: 40px;
+    color: #364F6B;
+}
+.gpainfoCaption {
+    font-size: 10px;
 }
