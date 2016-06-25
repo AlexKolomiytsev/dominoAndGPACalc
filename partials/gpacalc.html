@@ -7,7 +7,7 @@
             <div class="col-lg-6 gradeName">
                 {{gradeName}}
                 <div class="gpainfoCaption">
-                    Grade name
+                    Group name
                 </div>
             </div>
             <div class="col-lg-6 gradeGPA">
@@ -19,7 +19,7 @@
         </div>
     </section>
     <section class="GPACalculator">
-        <button ng-click="addGrade()" class="btn btn-primary btn-addGrade">Add Grade</button>
+        <button ng-click="addGrade()" class="btn btn-primary btn-addGrade">Add Group</button>
         <form name="outerForm" class="form-inline">
             <uib-tabset active="activeTabIndex" justified="false">
                 <uib-tab ng-repeat="gradee in grades track by $index" select="bindGradeInfo(gradee)">
@@ -29,7 +29,7 @@
                     </uib-tab-heading>
                     <ng-form name="grade">
                         <div class="form-group gradeNameInput">
-                            <label for="gradename">GRADE</label>
+                            <label for="gradename">Group</label>
                             <input id="gradename" type="text" class="form-control" ng-model="gradee.title"
                                    ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 1000, 'blur': 0 } }"
                                    ng-change="updateGradeName(gradee, $index)">
