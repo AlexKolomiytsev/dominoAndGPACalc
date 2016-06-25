@@ -4,11 +4,43 @@
 'use strict';
 
 angular.module('Domino')
-    .controller('DominoController', ['$scope', function ($scope) {
-        $scope.leftRotation = function () {
-            console.log('left rotation');
+    .controller('DominoController', ['$scope', '$log', function ($scope, $log) {
+
+        $scope.slidersObj = {
+            rotationSpeed: 1,
+            figureSize: 1
         };
-        $scope.rightRotation = function () {
-            console.log('right rotation');
-        }
+
+        $scope.slider = {
+            options: {
+                start: function (event, ui) {
+                    $log.info('Slider start');
+                    $log.debug($scope.slidersObj.figureSize);
+                },
+                stop: function (event, ui) {
+                    $log.info('Slider stop');
+                    $log.debug($scope.slidersObj.figureSize);
+                }
+            }
+        };
+
+        $scope.number = 0;
+        $scope.rotationSpeed = 0.5;
+        $scope.rotateClockwise = function () {
+            $scope.number += 90;
+            if ($scope.number == 360) $scope.number = 0;
+            console.log($scope.number);
+        };
+        $scope.rotateCounterClockwise = function () {
+            $scope.number -= 90;
+            if ($scope.number == -360) $scope.number = 0;
+        };
+
+        
+        $scope.transformRotate = "rotate(0deg)";
+        $scope.transformScale = "scale(1,1)";
+        
+        $scope.$watch("number", function(val) {
+            $scope.transformRotate = "rotate("+val+"deg)";
+        });        
     }]);
