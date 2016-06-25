@@ -14,11 +14,13 @@
                     </div>
                 </div>
                 <div class="row dominoFigure">
-                    <div class="col-lg-12 rotateBody" ng-style="{'transition': 'all '+slidersObj.rotationSpeed+'s ease-in-out 0s',
+                    <div class="col-lg-12 rotateBody" ng-style="{'transition': 'all '+ -slidersObj.rotationSpeed+'s ease-in-out 0s',
                                                                 'transform': transformRotate}">
                         <div class="dominoBody" ng-style="{'transform': 'scale('+slidersObj.figureSize+', '+slidersObj.figureSize+')'}">
-                            <div class="dominoParts dominoTop"></div>
-                            <div class="dominoParts dominoBottom"></div>
+                            <div class="dominoTop">
+                            </div>
+                            <div class="dominoBottom">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -28,7 +30,7 @@
                             Size
                         </div>
                         <div class="col-lg-10">
-                            <div ui-slider="slider.options" min="0.5" max="1.7" step="0.01" use-decimals ng-model="slidersObj.figureSize" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><span class="ui-slider-handle ui-state-default ui-corner-all sliderSpan" tabindex="0" style="left: 0%;"></span></div>
+                            <div ui-slider="slider.options" min="0.5" max="1.7" step="0.01" use-decimals ng-model="slidersObj.figureSize" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><span class="ui-slider-handle ui-state-default sliderSpan" tabindex="0" style="left: 0%;"></span></div>
                         </div>
                     </div>
                     <div class="row speedControl">
@@ -36,19 +38,19 @@
                             Speed
                         </div>
                         <div class="col-lg-10">
-                            <div ui-slider="slider.options" min="0.1" max="3" step="0.1" use-decimals ng-model="slidersObj.rotationSpeed" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><span class="ui-slider-handle ui-state-default ui-corner-all sliderSpan" tabindex="0" style="left: 0%;"></span></div>
+                            <div ui-slider="slider.options" min="-3" max="-0.2" step="0.01" use-decimals ng-model="slidersObj.rotationSpeed" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><span class="ui-slider-handle ui-state-default sliderSpan" tabindex="0" style="left: 0%;"></span></div>
                         </div>
                     </div>
 
                 </div>
                 </div>
-                <div class="col-lg-2" ng-if="chooseFaces">
-                    <div class="dominoParts pointOne"></div>
-                    <div class="dominoParts pointTwo"></div>
-                    <div class="dominoParts pointThree"></div>
-                    <div class="dominoParts pointFour"></div>
-                    <div class="dominoParts pointFive"></div>
-                    <div class="dominoParts PointSix"></div>
+                <div class="col-lg-2" ng-if="chooseFaces=true">
+                    <face-one></face-one>
+                    <face-two></face-two>
+                    <face-three></face-three>
+                    <face-four></face-four>
+                    <face-five></face-five>
+                    <face-six></face-six>
                 </div>
             </div>
         </div>

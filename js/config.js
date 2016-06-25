@@ -9,12 +9,12 @@ angular.module('app')
         });
 
         $routeProvider.when('/domino', {
-            templateUrl: 'partials/domino.html',
+            templateUrl: 'partials/domino/domino.html',
             controller: 'DominoController'
         });
 
         $routeProvider.when('/gpacalc', {
-            templateUrl: 'partials/gpacalc.html',
+            templateUrl: 'partials/gpacalc/gpacalc.html',
             controller: 'CalcController'
         });
 
