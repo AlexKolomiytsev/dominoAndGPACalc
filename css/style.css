@@ -202,6 +202,58 @@ ng-form[name="addNewStudent"] {
     cursor: pointer;
 }
 
+
+.choosefaces.ng-enter,
+.choosefaces.ng-leave {
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+.choosefaces.ng-enter {
+    /*opacity: 0;
+    display: block;*/
+    left: 10%;
+    opacity: 0;
+}
+.choosefaces.ng-leave {
+    /*opacity: 1;
+    display: none;*/
+    left: 0%;
+    opacity: 1;
+}
+.choosefaces.ng-enter-active {
+    /*opacity: 1;*/
+    left: 0%;
+    opacity: 1;
+}
+.choosefaces.ng-leave-active {
+    /*opacity: 0;*/
+    left: 10%;
+    opacity: 0;
+}
+/*.closeFaces {
+    opacity: 1;
+}
+
+.closeFaces.ng-hide-add, .animate-show.ng-hide-remove {
+    transition: 1s linear all;
+}
+
+.closeFaces.ng-hide-add {
+    opacity: 0;
+}
+.closeFaces.ng-hide-add.ng-hide-add-active {
+    opacity: 1;
+}
+.closeFaces.ng-hide-remove {
+    opacity: 0;
+}
+.closeFaces.ng-hide-remove.ng-hide-remove-active {
+    opacity: 1;
+}*/
+
+
 /*::::::::::::::::DOMINO FACES:::::START:::::::::::::::*/
 .dot, .dot1, .dot2, .dot3, .dot4, .dot5, .dot6 {
     background-color: #364F6B;

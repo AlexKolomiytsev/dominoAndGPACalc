@@ -4,8 +4,8 @@
     </header>
     <section class="col-lg-12 dominoGame">
         <div class="row">
-            <div class="col-lg-5">
-                <div class="col-lg-10">
+            <div class="col-lg-6">
+                <div class="col-lg-9">
                 <div class="row newDomino">
                     <div class="col-lg-12 dominoTopButtons">
                         <span class="fa fa-undo leftRotate dbtn" ng-click="rotateCounterClockwise()"></span>
@@ -44,8 +44,10 @@
 
                 </div>
                 </div>
-                <span class="fa fa-times closeFaces" ng-show="chooseFaces" ng-click="chooseFaces=false"></span>
-                <div class="col-lg-2" ng-if="chooseFaces">
+                <div class="col-lg-1">
+                    <span class="fa fa-times fa-2x closeFaces" ng-show="chooseFaces" ng-click="chooseFaces=false"></span>
+                </div>
+                <div class="col-lg-2 choosefaces" ng-if="chooseFaces">
                     <face-one></face-one>
                     <face-two></face-two>
                     <face-three></face-three>
