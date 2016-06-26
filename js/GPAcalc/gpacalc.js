@@ -71,8 +71,8 @@ angular.module('GPAcalc')
             
         };
         
-        $scope.newStName = null;
-        $scope.newStGPA = null;
+        /*$scope.newStName = null;
+        $scope.newStGPA = null;*/
 
         function initNewSt() {
             $scope.newStudent = {
@@ -81,28 +81,30 @@ angular.module('GPAcalc')
             };
         }
         initNewSt();
-        
-        $scope.addStudentToGrade = function (grade) {
-            if ($scope.newStudent.stName != "" && $scope.newStudent.stGPA != "") {
-                var studentToSave = $scope.newStudent;
-                initNewSt();
-                var gradeToSave = angular.copy(grade);
-                grade.students.push(studentToSave);
-                gradeToSave.students.push(studentToSave);
 
-                $scope.bindGradeInfo(grade);
-                $http.put(collectionUrl + '/' + grade._id, gradeToSave, {
-                    params: {
-                        apiKey: apiKey
-                    }
-                });
-            }
-            else {
-                alert("Enter values!");
-            }
-        };
 
+        $scope.addStudentToGrade = function (grade, formController) {
+            $scope.studentAddedSuccess = false;
+                if (formController.stGPA.$valid) {
+                    
+                    var studentToSave = $scope.newStudent;
+                    initNewSt();
+                    var gradeToSave = angular.copy(grade);
+                    grade.students.push(studentToSave);
+                    gradeToSave.students.push(studentToSave);
+                    $scope.studentAddedSuccess = true;
+                    $scope.bindGradeInfo(grade);
+                    $http.put(collectionUrl + '/' + grade._id, gradeToSave, {
+                        params: {
+                            apiKey: apiKey
+                        }
+                    });
+
+                }
+            };
+        $scope.studentDeletedSuccess = false;
         $scope.deleteStudentFromGrade = function (studentIndex, grade) {
+            $scope.studentDeletedSuccess = true;
             console.log(studentIndex);
             var gradeToSave = angular.copy(grade);
 
@@ -115,7 +117,8 @@ angular.module('GPAcalc')
                 params: {
                     apiKey: apiKey
                 }
-            })
+            });
+            
         };
 
         $scope.bindGradeInfo = function (grade) {

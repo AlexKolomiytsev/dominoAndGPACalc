@@ -39,6 +39,9 @@ h2 {
     border-bottom: 1px solid #FC5185;
     text-shadow: 0px 0px 1px #3FC1C9;
 }
+.gpacalc {
+    margin-bottom: 100px;
+}
 
 .startPage a {
     text-decoration: none;
@@ -89,6 +92,38 @@ div[ng-view].ng-enter-active {
 div[ng-view].ng-leave-active {
     /*opacity: 0;*/
     left: -100%;
+}
+
+/*.alert.ng-hide-add, .alert.ng-hide-remove {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}*/
+.alert.ng-enter, .alert.ng-leave {
+    -webkit-transition: all 1s ease-in;
+    -moz-transition: all 1s ease-in;
+    -o-transition: all 1s ease-in;
+    transition: all 1s ease-in;
+}
+.alert.ng-enter{
+    opacity: 0;     /*initial css for view transition in*/
+}
+.alert.ng-enter-active {
+    opacity: 1;     /*final css for view transition in*/
+}
+.alert.ng-leave {
+    opacity: 1;     /*initial css for view transition out*/
+
+}
+.alert.ng-leave-active {
+    opacity: 0;    /*final css for view transition out*/
+}
+
+
+
+ng-form[name="addNewStudent"] {
+    margin: 20px;
 }
 /*:::::::::::::::::::::::::DOMINO:::::::::::::::::::::::::::::::::::::::::::*/
 
