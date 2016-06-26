@@ -44,5 +44,7 @@ angular.module('Domino')
         
         $scope.$watch("number", function(val) {
             $scope.transformRotate = "rotate("+val+"deg)";
-        });        
+        });
+
+        $scope.chooseFaces = false;
     }]);

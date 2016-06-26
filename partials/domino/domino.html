@@ -44,7 +44,8 @@
 
                 </div>
                 </div>
-                <div class="col-lg-2" ng-if="chooseFaces=true">
+                <span class="fa fa-times closeFaces" ng-show="chooseFaces" ng-click="chooseFaces=false"></span>
+                <div class="col-lg-2" ng-if="chooseFaces">
                     <face-one></face-one>
                     <face-two></face-two>
                     <face-three></face-three>

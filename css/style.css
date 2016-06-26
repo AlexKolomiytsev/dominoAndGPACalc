@@ -118,7 +118,7 @@ div[ng-view].ng-leave-active {
     width: 100px;
     height: 200px;
     margin: auto;
-
+    background: #fff;
 }
 .dominoTopButtons {
     z-index: 100;
@@ -160,12 +160,16 @@ div[ng-view].ng-leave-active {
     background: #3FC1C9;
 }
 .dominoBody .dominoTop {
+    height: 101px;
     border-bottom: 1px solid #364F6B;
+}
+.closeFaces {
+    cursor: pointer;
 }
 
 /*::::::::::::::::DOMINO FACES:::::START:::::::::::::::*/
 .dot, .dot1, .dot2, .dot3, .dot4, .dot5, .dot6 {
-    background-color: #0a0a0a;
+    background-color: #364F6B;
     border-radius: 50%;
     width: 10px;
     height: 10px;
