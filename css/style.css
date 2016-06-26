@@ -107,7 +107,7 @@ div[ng-view].ng-leave-active {
     transition: all 1s ease-in;
 }
 .alert.ng-enter{
-    opacity: 0;     /*initial css for view transition in*/
+    opacity: 1;     /*initial css for view transition in*/
 }
 .alert.ng-enter-active {
     opacity: 1;     /*final css for view transition in*/
